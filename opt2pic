@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 # 
 # Program: Optimize image file
 # Author: shazi
@@ -30,7 +30,6 @@ check_bin() {
 			yum install -y jpegoptim
 			echo "jpegoptim install finish."
 		fi
-
 	fi
 
 	if [[ ! -x /usr/bin/optipng ]]; then
@@ -50,6 +49,7 @@ jpg_conv() {
 }
 
 png_conv() {
+	# Optimize PNG images
     find "$DIR" -name '*.png' | xargs optipng -nc -nb -o7 -full
 }
 

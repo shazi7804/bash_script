@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+# Program: User-Agent statistics 
+# Author: shazi
+
+CUT="\""
+
+helpmsg() {
+	echo "Usage $0 [OPTION]"
+	echo ""
+	echo "OPTION:"
+	echo "-f        input access.log file."
+	echo "-c        cut world. (default \")"
+	echo "-o		output file"
+	echo ""
+	echo "Example:"
+	echo "	$0 -f access.log -c '\"'"
+	echo "	$0 -f *access.log* -c '\"'"
+	echo ""
+}
+
+count() {
+	if [[ -z $OUTFILE ]]; then
+		cat ${FILE} | awk -F ${CUT} '{print $6}'| sort | uniq -c | sort -n
+	else
+		cat ${FILE} | awk -F ${CUT} '{print $6}'| sort | uniq -c | sort -n > $OUTFILE
+	fi
+}
+
+while getopts "hf:c:o:" opt
+do
+	case $opt in
+		f)
+			FILE="$OPTARG";;
+		c)
+			CUT="$OPTARG";;
+		o)
+			OUTFILE="$OPTARG";;
+		?)
+			echo "Invalid option: -${OPTARG}"
+			exit;;
+	esac
+done
+
+if [[ ! -z $FILE && ! -z $CUT ]]; then
+	count
+else
+	helpmsg
+fi
