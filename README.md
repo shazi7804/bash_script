@@ -5,3 +5,4 @@ The bash script for work
 * countUserAgent - User-Agent statistics.
 * curlstatus - User "curl" site speed and status.
 * mkpwd - Generate random Password.
+* chkmod - Check the directory permissions
