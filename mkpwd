@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# Program: Generate random Password
+# Author: shazi
+array=(^ % \* \# @ ! $ % + = \~ \: \; \| {a..z} {0..9} {A..Z})
+
+mun=`echo ${#array[@]}`
+quota=5
+length=12
+for j in `seq 1 $quota`
+do
+    for i in `seq 1 $length`
+    do
+        echo -n "${array[$((RANDOM%${mun}))]}"
+    done
+    echo
+done

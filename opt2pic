@@ -11,7 +11,7 @@ stop() {
 }
 
 helpmsg() {
-	echo "Usage: $0 [DIR] [OPTION]"
+    echo "Usage: $0 [DIR] [OPTION]"
     echo ""
     echo "OPTION:"
     echo "-jpg		use jpegoptim optimize jpg/jpeg."
@@ -45,11 +45,11 @@ check_bin() {
 jpg_conv() {
     # Optimize JPEG/JPG images
     EXTENSIONS=jpe?g
-    find "$DIR" -regextype posix-egrep -regex ".*\.(${EXTENSIONS})\$" -type f | xargs jpegoptim
+    find "$DIR" -regextype posix-egrep -regex ".*\.(${EXTENSIONS})\$" -type f | xargs jpegoptim --strip-all
 }
 
 png_conv() {
-	# Optimize PNG images
+    # Optimize PNG images
     find "$DIR" -name '*.png' | xargs optipng -nc -nb -o7 -full
 }
 
@@ -69,7 +69,7 @@ if [[ $# -gt 1 ]]; then
 		esac
 	done
 else
-	helpmsg
+    helpmsg
 fi
 
 for (( i = 0; i < ${#convert[@]}; i++ )); do
