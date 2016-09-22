@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# Program: ts video more download and merge
+# Author: shazi
+URL="http://eshare.vod.otvcloud.com"
+wget ${URL}/65189_500{0..165}.ts &
+wait
+echo 65189_500{0..165}.ts | tr " " "\n" > tslist
+while read line; do cat $line >> combined.ts; done < tslist
