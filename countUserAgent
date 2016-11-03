@@ -2,20 +2,21 @@
 #
 # Program: User-Agent statistics 
 # Author: shazi
-
+# github: https://github.com/shazi7804
 CUT="\""
 
 helpmsg() {
+	echo ""
 	echo "Usage $0 [OPTION]"
 	echo ""
 	echo "OPTION:"
-	echo "-f        input access.log file."
-	echo "-c        cut world. (default \")"
-	echo "-o		output file"
+	echo "  -f    input access.log file."
+	echo "  -c    cut world. (default \")"
+	echo "  -o    output file"
 	echo ""
 	echo "Example:"
-	echo "	$0 -f access.log -c '\"'"
-	echo "	$0 -f *access.log* -c '\"'"
+	echo "  $0 -f access.log -c '\"'"
+	echo "  $0 -f *access.log* -c '\"'"
 	echo ""
 }
 

@@ -1,0 +1,64 @@
+#!/bin/bash
+#
+# Program: get curl status and speed
+# Author: shazi
+# github: https://github.com/shazi7804
+
+helpmsg() {
+	echo ""
+	echo "Usage: $0 [URL] [OPTION]"
+	echo ""
+	echo "[OPTION]"
+	echo "  -A    Send User-Agent STRING to server"
+	echo ""
+	echo "Example:"
+	echo "  $0 http://www.google.com"
+	echo "  $0 -A Chrome http://www.google.com"
+	echo ""
+}
+
+getspeed() {
+	if [[ -z $ua ]]; then
+		ua="getspeed from https://github.com/shazi7804"
+	fi
+	curl -A $ua -o /dev/null -s -w\
+	"
+	HTTP status code:       %{http_code}\n\
+	DNS resolve:            %{time_namelookup}\n\
+	connect to server:      %{time_connect}\n\
+	handshake SSL server:   %{time_appconnect}\n\
+	Server first respon:    %{time_starttransfer}\n\
+	header size(bytes):     %{size_header}\n\
+	request size(bytes):    %{size_request}\n\
+	------------------------------------\n\
+	Total time:             %{time_total} sec\n
+	" \
+	"${uri}"
+}
+
+for opt in $@
+do
+	case $opt in
+		-A)
+			shift
+			ua=$1
+			shift
+			;;
+		-h|--help)
+			helpmsg
+			;;
+	esac
+done
+
+if [[ ! -z $1 ]]; then
+	uri=$1
+	getspeed
+else
+	helpmsg
+fi
+
+
+
+
+
+

@@ -2,6 +2,7 @@
 #                                                                 
 # Program: Check the directory permissions
 # Author: shazi
+# Github: https://github.com/shazi7804
 NginxRoot="/usr/share/nginx/html"
 GitRoot="${NginxRoot}/git"
 TestRoot="${NginxRoot}/test"
