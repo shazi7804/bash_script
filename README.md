@@ -30,3 +30,6 @@ Check the directory permissions.
 
 ## tsmerge
 ts video more download and merge.
+
+## udp_max_session
+Limit php-fpm to generate the number of UDP connections.
