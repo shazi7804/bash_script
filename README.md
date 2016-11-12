@@ -23,6 +23,11 @@ $ ./getspeed -A UserAgent www.google.com
 Generate random Password.
 ```
 $ ./mkpwd
+hjOK9caTchj4
+AuM58;t5rO|f
+#!SLKNbIG*:w
+MrDao=MnT|d6
+*+;BPm7JuVkW
 ```
 
 ## chkmod
@@ -30,6 +35,9 @@ Check the directory permissions.
 
 ## tsmerge
 ts video more download and merge.
+```
+./tsmerge www.media.com "65189_500{0..165}.ts"
+```
 
 ## udp_max_session
 Limit php-fpm to generate the number of UDP connections.

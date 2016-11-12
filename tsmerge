@@ -2,8 +2,12 @@
 #
 # Program: ts video more download and merge
 # Author: shazi
-URL="http://eshare.vod.otvcloud.com"
-wget ${URL}/65189_500{0..165}.ts &
+URL=$1
+shift
+#wget ${URL}/65189_500{0..165}.ts &
+wget ${URL}/$@ &
 wait
-echo 65189_500{0..165}.ts | tr " " "\n" > tslist
+echo $@ | tr " " "\n" > tslist
 while read line; do cat $line >> combined.ts; done < tslist
+
+
