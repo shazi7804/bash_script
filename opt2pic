@@ -23,10 +23,10 @@ helpmsg() {
 
 jpg_conv() {
     # Optimize JPEG/JPG images
-    if [[ ! -x /usr/bin/jpegoptim ]]; then
+    if [ ! -x /usr/bin/jpegoptim ]; then
 		echo "Check jpegoptim install ... no"
 		read -p "Do you want to install jpegoptim? [y/n]:" jpegoptim_ask
-		if [[ $jpegoptim_ask = +(y|Y) ]]; then
+		if [ $jpegoptim_ask = +(y|Y) ]; then
 			yum install -y jpegoptim
 			echo "jpegoptim install finish."
 		fi
@@ -37,10 +37,10 @@ jpg_conv() {
 
 png_conv() {
     # Optimize PNG images
-    if [[ ! -x /usr/bin/optipng ]]; then
+    if [ ! -x /usr/bin/optipng ]; then
 		echo "Check optipng install ... no"
 		read -p "Do you want to install optipng? [y/n]:" optipng_ask
-		if [[ $optipng_ask = +(y|Y) ]]; then
+		if [ $optipng_ask = +(y|Y) ]; then
 			yum install -y optipng
 			echo "optipng install finish."
 		fi
@@ -52,7 +52,7 @@ convert=()
 DIR="$1"
 shift
 
-if [[ $# -ge 1 ]]; then
+if [ $# -ge 1 ]; then
 	for opt in $1
 	do
 		case $opt in
@@ -71,9 +71,9 @@ else
 fi
 
 for (( i = 0; i < ${#convert[@]}; i++ )); do
-	if [[ "jpg" == ${convert[i]} ]]; then
+	if [ "jpg" == ${convert[i]} ]; then
 		jpg_conv
-	elif [[ "png" == ${convert[i]} ]]; then
+	elif [ "png" == ${convert[i]} ]; then
 		png_conv
 	fi
 done
