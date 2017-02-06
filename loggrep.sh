@@ -24,7 +24,7 @@ hit(){
     echo "[${0}][Warning]: time format fail. param \"max_time\" not found."
     exit 1
   else
-    sed -n '/${DefaultYear}:${min_time}/,/${DefaultYear}:${max_time}/p' $Log_file | awk '{print $1}' | sort -n | uniq -c | sort -nr | more
+    sed -n "/${DefaultYear}:${min_time}/,/${DefaultYear}:${max_time}/p" $Log_file | awk '{print $1}' | sort -n | uniq -c | sort -nr | more
   fi
 }
 
